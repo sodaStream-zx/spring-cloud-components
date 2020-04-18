@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: learn-consumer
+  cloud:
+    nacos:
+      config:
+        server-addr: 62.234.211.179:8848
+        file-extension: yml
+        group: learn
+        namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
+        ext-config[0]:
+          refresh: true
+          data-id: nacosDiscovery.yml
+          group: learn

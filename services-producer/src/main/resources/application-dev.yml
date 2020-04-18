@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: learn-producer
+server:
+  port: 15015
+  tomcat:
+    accept-count: 1000
+    max-threads: 1000
+logging:
+  file: bicap-ms-service-data-anlysis-v2.log
+  level.root: info
+info:
+  version: ${project.version}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

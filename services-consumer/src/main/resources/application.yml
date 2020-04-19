@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: learn-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 62.234.211.179:8848
+        register-enabled: true
+        namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
+server:
+  port: 15015
+  tomcat:
+    accept-count: 1000
+    max-threads: 1000
+logging:
+  file: learn-consumer.log
+  level.root: warn
+info:
+  version: ${project.version}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+swagger:
+  config:
+    pack-location: pri

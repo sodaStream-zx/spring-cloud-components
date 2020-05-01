@@ -16,7 +16,7 @@ logging:
   file: learn-consumer.log
   level.root: warn
 info:
-  version: ${project.version}
+  version: 1.0
 management:
   endpoints:
     web:

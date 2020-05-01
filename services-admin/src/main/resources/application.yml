@@ -11,12 +11,13 @@ server:
   port: 10010
   tomcat:
     accept-count: 1000
-    max-threads: 1000
+    max-threads: 200
 logging:
-  file: admin-oo.log
+  file:
+    name: admin-oo.log
   level.root: warn
 info:
-  version: ${project.version}
+  version: 1.0
 management:
   endpoints:
     web:

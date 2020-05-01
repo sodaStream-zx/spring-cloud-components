@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 //@Component
 @RefreshScope
-@ConfigurationProperties(value = "swagger.config")
+@ConfigurationProperties(value = "swagger.pri.zxx.config")
 public class SwaggerProperties implements Serializable {
     private static final long serialVersionUID = 8294103005L;
     @Autowired
@@ -40,7 +40,7 @@ public class SwaggerProperties implements Serializable {
      */
     public void overrideFromEnv(Environment env) {
         if (StringUtils.isEmpty(this.getPackLocation())) {
-            this.setPackLocation(env.resolvePlaceholders("${swagger.config.controller-location:}"));
+            this.setPackLocation(env.resolvePlaceholders("${swagger.pri.zxx.config.controller-location:}"));
         }
         if (StringUtils.isEmpty(this.getAppName())) {
             this.setAppName(env.resolvePlaceholders("${spring.application.name:}"));
@@ -52,15 +52,15 @@ public class SwaggerProperties implements Serializable {
             this.setAppPort(env.resolvePlaceholders("${server.port:}"));
         }
         if (StringUtils.isEmpty(this.getDesc())) {
-            this.setDesc(env.resolvePlaceholders("${swagger.config.desc:}"));
+            this.setDesc(env.resolvePlaceholders("${swagger.pri.zxx.config.desc:}"));
         }
 
         if (StringUtils.isEmpty(this.getContact())) {
-            this.setContact(env.resolvePlaceholders("${swagger.config.contact:}"));
+            this.setContact(env.resolvePlaceholders("${swagger.pri.zxx.config.contact:}"));
         }
 
         if (StringUtils.isEmpty(this.getVersion())) {
-            this.setVersion(env.resolvePlaceholders("${swagger.config.version:}"));
+            this.setVersion(env.resolvePlaceholders("${swagger.pri.zxx.config.version:}"));
         }
     }
 

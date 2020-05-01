@@ -44,10 +44,10 @@
         </dependency>
 
         <!--配置中心-->
-        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-pri.zxx.config -->
         <!--        <dependency>-->
         <!--            <groupId>com.alibaba.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+        <!--            <artifactId>spring-cloud-starter-alibaba-nacos-pri.zxx.config</artifactId>-->
         <!--        </dependency>-->
 
 

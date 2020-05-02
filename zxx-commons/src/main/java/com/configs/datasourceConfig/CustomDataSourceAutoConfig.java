@@ -47,6 +47,7 @@ public class CustomDataSourceAutoConfig {
         datasource.setPoolPreparedStatements(customDuridDataSourceProperties.getPoolPreparedStatements());
         datasource.setMaxPoolPreparedStatementPerConnectionSize(customDuridDataSourceProperties.getMaxPoolPreparedStatementPerConnectionSize());
         datasource.setConnectionProperties(customDuridDataSourceProperties.getConnectionProperties());
+        datasource.setAsyncInit(true);
         try {
             datasource.setFilters(customDuridDataSourceProperties.getFilters());
         } catch (SQLException e) {

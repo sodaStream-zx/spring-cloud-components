@@ -7,23 +7,20 @@ spring:
         server-addr: 62.234.211.179:8848
         register-enabled: true
         namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
-  datasource:
-    url: jdbc:mysql://localhost:3306/component_learn?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
-    password: zxx1994
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
   redis:
     host: 192.168.226.132
     port: 6379
+  profiles:
+    active: druid
 server:
   port: 10001
   tomcat:
     accept-count: 1000
     max-threads: 1000
 logging:
-  file: learn-producer.log
   level.root: warn
+  file:
+    name: learn-producer.log
 info:
   version: 1.0
 management:

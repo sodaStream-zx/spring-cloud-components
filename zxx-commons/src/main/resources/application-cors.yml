@@ -1,0 +1,7 @@
+common:
+  cors:
+    enabled: true
+    origin: '*'
+    header: '*'
+    method: '*'
+    path: /**

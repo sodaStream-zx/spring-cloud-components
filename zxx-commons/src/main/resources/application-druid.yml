@@ -1,0 +1,23 @@
+common:
+  custom-durid:
+    enabled: true
+    driverClassName: com.mysql.jdbc.Driver
+    # 250
+    url: jdbc:mysql://ycmysql.web.zz:3306/yunce?useSSL=false&allowMultiQueries=true
+    username: zzyq
+    password: 1qaz2WSX!@
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 50
+    minIdle: 10
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: "SELECT 1 FROM DUAL"
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 50
+    filters: "stat,log4j"
+    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000

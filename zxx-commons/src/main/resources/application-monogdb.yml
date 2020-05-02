@@ -1,0 +1,13 @@
+common:
+  ftp:
+    enabled: true
+    ip: 10.253.50.80
+    port: 21
+    username: pm
+    password: pm2017
+    base-path: /yunce
+  mongo:
+    enabled: true
+    uri: 'mongodb://ycmongodb.dc.zz:27017'
+    db-name: 'work'
+    collection: 'siteSearch'

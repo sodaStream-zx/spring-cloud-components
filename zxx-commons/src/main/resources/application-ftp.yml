@@ -1,0 +1,8 @@
+common:
+  ftp:
+    enabled: true
+    ip: 10.253.50.80
+    port: 21
+    username: pm
+    password: pm2017
+    base-path: /yunce

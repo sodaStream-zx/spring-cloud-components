@@ -1,0 +1,9 @@
+common:
+  sms:
+    enabled: true
+    product: "Dysmsapi";
+    domain: "dysmsapi.aliyuncs.com";
+    accessKeyId: "LTAIlEion0Q8ZyJ2";
+    accessKeySecret: "mt7SKlBPWTZYQaFWgx2Kowx8KL9xje";
+    SIGNNAME: "云测APP";
+    SMSTEMPLATE: "SMS_170555357";

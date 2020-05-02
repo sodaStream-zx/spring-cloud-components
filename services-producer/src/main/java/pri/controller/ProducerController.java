@@ -1,5 +1,6 @@
 package pri.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ import pri.vo.TProduct;
  */
 @RestController
 @RequestMapping("/producer")
+@Api(tags = "服务提供者")
 public class ProducerController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());

@@ -1,0 +1,12 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.configs.CorsConfig.CorsAutoConfig,\
+com.configs.esconfigs.EsAutoConfig,\
+com.configs.propertiesConfig.PropertiesAutoConfig,\
+com.configs.redisconfigs.RedisAutoConfig,\
+  com.configs.redisconfigs.RedisHealthConfig,\
+  com.configs.datasourceConfig.CustomDataSourceAutoConfig,\
+  com.configs.esconfigs.EsHealthConfig,\
+  com.configs.logAsp.LogRecordAutoConfig,\
+  com.configs.propertiesConfig.RabbitHealthAutoConfig,\
+  com.configs.mongodb.MongoDbAutoConfig,\
+  com.configs.swaggerconfig.SwaggerAutoConfiguration

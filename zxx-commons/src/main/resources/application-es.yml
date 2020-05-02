@@ -1,0 +1,10 @@
+common:
+  es:
+    types:
+      ES_DATA_TYPE: data
+    hosts: http://ycescluster.web.zz:9200
+    indexs:
+      YUNCEORIGINAL: yunce_original
+      ES_TASK_DATA_V2_INDEX: yunce_task_data_v2
+    enabled: true
+    cluster-name: yunce_es

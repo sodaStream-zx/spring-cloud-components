@@ -1,0 +1,23 @@
+spring:
+  #  cluster
+  redis:
+    enabled: true
+    cluster:
+      enabled: true
+      nodes: 10.253.90.13:6379,10.253.90.14:6379,10.253.90.15:6379
+      max-redirects: 5
+    #alone
+    alone:
+      enabled: true
+      database: 0
+      host: localhost
+      port: 6379
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+      conn-timeout: 0
+      read-timeout: 0
+      password:
+      ssl: false
+

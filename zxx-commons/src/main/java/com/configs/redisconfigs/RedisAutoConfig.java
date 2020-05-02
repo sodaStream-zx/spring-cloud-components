@@ -68,9 +68,9 @@ public class RedisAutoConfig {
     }
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+    public RedisTemplate redisTemplate(RedisConnectionFactory factory) {
         log.warn("-------------->>配置redisTemplate ");
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        RedisTemplate template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
         template.setValueSerializer(new FastJsonRedisSerializer(Object.class));
         template.setKeySerializer(new StringRedisSerializer(StandardCharsets.UTF_8));

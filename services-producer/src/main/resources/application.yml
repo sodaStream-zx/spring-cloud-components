@@ -7,11 +7,23 @@ spring:
         server-addr: 62.234.211.179:8848
         register-enabled: true
         namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
-  redis:
-    host: 192.168.226.132
-    port: 6379
   profiles:
     active: druid
+  redis:
+    alone:
+      enabled: true
+      database: 0
+      host: 192.168.226.132
+      port: 6379
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+      conn-timeout: 0
+      read-timeout: 0
+      password: zxx
+      ssl: false
+    enabled: true
 server:
   port: 10001
   tomcat:
@@ -29,4 +41,4 @@ management:
       exposure:
         include: '*'
 mybatis:
-  mapper-locations: classpath:mappers/**/*.xml
+  mapper-locations: classpath:/mappers/**/*.xml

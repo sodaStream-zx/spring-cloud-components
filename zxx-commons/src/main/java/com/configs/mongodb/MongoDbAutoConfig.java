@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @EnableConfigurationProperties(value = MongoDbPro.class)
 @Configuration
-@ConditionalOnProperty(value = "common.mongo.enabled", matchIfMissing = false)
+@ConditionalOnProperty(value = "common.mongo.enabled")
 public class MongoDbAutoConfig {
     private static final Logger log = LoggerFactory.getLogger(MongoDbAutoConfig.class);
     @Autowired
@@ -26,7 +26,6 @@ public class MongoDbAutoConfig {
     @Bean
     public MongoClient mongoClient() {
         log.warn("-------------->>配置mongodb {}", mongoDbPro.toString());
-        MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoDbPro.getUri()));
-        return mongoClient;
+        return new MongoClient(new MongoClientURI(mongoDbPro.getUri()));
     }
 }

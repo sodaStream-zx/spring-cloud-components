@@ -51,15 +51,15 @@ public class ProducerController {
     @GetMapping(value = "/order/{pId}")
     @ApiOperation(value = "下单")
     public String orderOne(@PathVariable(value = "pId") Long pId) {
-        synchronized (mutx) {
-            TProduct product = productService.orderOne(pId);
-            if (product.getpStock() > 0) {
-                Integer integer = productService.subOne(pId);
-                if (integer > 0) {
-                    return "秒杀失败";
-                }
+//        synchronized (mutx) {
+        TProduct product = productService.orderOne(pId);
+        if (product.getpStock() > 0) {
+            Integer integer = productService.subOne(pId);
+            if (integer > 0) {
+                return "秒杀失败";
             }
         }
+//        }
         return "秒杀成功";
     }
 

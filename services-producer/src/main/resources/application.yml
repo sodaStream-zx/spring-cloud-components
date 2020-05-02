@@ -14,7 +14,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
   redis:
-    host: localhost
+    host: 192.168.226.132
     port: 6379
 server:
   port: 10001

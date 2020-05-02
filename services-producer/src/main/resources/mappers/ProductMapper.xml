@@ -81,5 +81,6 @@
         update t_product
         set p_stock = p_stock - 1
         where p_id = #{pId}
+          and p_stock > 0
     </update>
 </mapper>

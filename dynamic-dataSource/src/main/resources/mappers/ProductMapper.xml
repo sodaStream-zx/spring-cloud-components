@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pri.zxx.mapper.ProductMapper">
+    <resultMap id="BaseResultMap" type="pri.zxx.vo.TProduct">
+        <id column="p_id" jdbcType="BIGINT" property="pId"/>
+        <result column="p_name" jdbcType="VARCHAR" property="pName"/>
+        <result column="p_desc" jdbcType="VARCHAR" property="pDesc"/>
+        <result column="p_stock" jdbcType="BIGINT" property="pStock"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        p_id, p_name, p_desc, p_stock
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_product
+        where p_id = #{pId,jdbcType=BIGINT}
+    </select>
+    <select id="totalProduct" resultType="java.lang.Integer">
+        select count(1)
+        from t_product
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from t_product
+        where p_id = #{pId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="p_id" keyProperty="pId" parameterType="pri.zxx.vo.TProduct" useGeneratedKeys="true">
+        insert into t_product (p_name, p_desc, p_stock)
+        values (#{pName,jdbcType=VARCHAR}, #{pDesc,jdbcType=VARCHAR}, #{pStock,jdbcType=BIGINT})
+    </insert>
+    <insert id="insertSelective" keyColumn="p_id" keyProperty="pId" parameterType="pri.zxx.vo.TProduct"
+            useGeneratedKeys="true">
+        insert into t_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pName != null">
+                p_name,
+            </if>
+            <if test="pDesc != null">
+                p_desc,
+            </if>
+            <if test="pStock != null">
+                p_stock,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pName != null">
+                #{pName,jdbcType=VARCHAR},
+            </if>
+            <if test="pDesc != null">
+                #{pDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="pStock != null">
+                #{pStock,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="pri.zxx.vo.TProduct">
+        update t_product
+        <set>
+            <if test="pName != null">
+                p_name = #{pName,jdbcType=VARCHAR},
+            </if>
+            <if test="pDesc != null">
+                p_desc = #{pDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="pStock != null">
+                p_stock = #{pStock,jdbcType=BIGINT},
+            </if>
+        </set>
+        where p_id = #{pId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="pri.zxx.vo.TProduct">
+        update t_product
+        set p_name  = #{pName,jdbcType=VARCHAR},
+            p_desc  = #{pDesc,jdbcType=VARCHAR},
+            p_stock = #{pStock,jdbcType=BIGINT}
+        where p_id = #{pId,jdbcType=BIGINT}
+    </update>
+    <update id="subOne">
+        update t_product
+        set p_stock = p_stock - 1
+        where p_id = #{pId}
+          and p_stock > 0
+    </update>
+    <update id="subOneSlave">
+         update t_product
+        set p_stock = p_stock - 1
+        where p_id = #{pId}
+          and p_stock > 0
+    </update>
+</mapper>

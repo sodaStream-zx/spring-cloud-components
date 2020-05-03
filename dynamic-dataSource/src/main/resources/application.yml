@@ -7,18 +7,23 @@ spring:
         server-addr: 62.234.211.179:8848
         register-enabled: true
         namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
+  profiles:
+    active: jdbcs
 server:
   port: 10009
   tomcat:
     accept-count: 1000
     max-threads: 1000
 logging:
-  file: dynamic-dataSource.log
   level.root: warn
+  file:
+    name: dynamic-dataSource.log
 info:
-  version: ${project.version}
+  version: 1.0
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+mybatis:
+  mapper-locations: classpath:/mappers/**/*.xml

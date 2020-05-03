@@ -1,0 +1,16 @@
+spring:
+  redis:
+    alone:
+      enabled: true
+      database: 0
+      host: 192.168.226.132
+      port: 6379
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+      conn-timeout: 0
+      read-timeout: 0
+      password: zxx
+      ssl: false
+    enabled: true

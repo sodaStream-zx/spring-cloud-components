@@ -33,6 +33,7 @@ public class DynamicDataSourceAspect {
 
     @Around(value = "cutOff()")
     public Object round(ProceedingJoinPoint pjp) {
+        String name = pjp.getSignature().getName();
         PickDataSource pickDataSource;
         MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
         pickDataSource = methodSignature.getMethod().getAnnotation(PickDataSource.class);
@@ -45,7 +46,7 @@ public class DynamicDataSourceAspect {
         } else {
             // 切换数据源
             DynamicDataSourceContextHolder.setDataSourceKey(pickDataSource.value());
-            log.warn("切换数据源为[{}],方法:[{}]", DynamicDataSourceContextHolder.getDataSourceKey(), pjp.getSignature());
+            log.warn("切换数据源为[{}],方法:[{}]", DynamicDataSourceContextHolder.getDataSourceKey(), name);
         }
         Object proceed = null;
         try {

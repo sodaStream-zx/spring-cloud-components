@@ -38,10 +38,10 @@ public class ProducerController {
         if (product.getpStock() > 0) {
             Integer integer = productService.subOne(pId);
             if (integer > 0) {
-                return "秒杀失败";
+                return "秒杀成功";
             }
         }
-        return "秒杀成功";
+        return "秒杀失败";
     }
 
     /**
@@ -54,9 +54,9 @@ public class ProducerController {
         if (product.getpStock() > 0) {
             Integer integer = productService.subOnesALVE(pId);
             if (integer > 0) {
-                return "秒杀失败";
+                return "秒杀成功";
             }
         }
-        return "秒杀成功";
+        return "秒杀失败";
     }
 }

@@ -1,0 +1,69 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: services-zuul
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 62.234.211.179:8848
+        register-enabled: true
+        namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
+    circuitbreaker:
+      hystrix:
+        enabled: true
+zuul:
+  prefix: /api
+  routes:
+    services-producer:
+      path: /servicesProducer/**
+      serviceId: services-producer
+    dynamic-dataSource:
+      path: /dynamicDataSource/**
+      serviceId: dynamic-dataSource
+    services-consumer:
+      path: /servicesConsumer/**
+      serviceId: services-consumer
+  ignored-services: '*' # 过滤掉未配置的服务
+  host:
+    socket-timeout-millis: 50000  # 只针对路由path 为 url时生效
+    connect-timeout-millis: 50000
+    max-total-connections: 500 #只适用于ApacheHttpClient
+    max-per-route-connections: 50 #只适用于ApacheHttpClient
+  ribbon-isolation-strategy: thread #设置信号量 或者线程隔离
+  thread-pool:
+    use-separate-thread-pools: true #每个服务使用单独的线程池
+  #  semaphore:
+  #    max-semaphores: 2000 # hystrx信号量 被zuul重新设计，源码默认100 ，只能通过zuul.semaphore设置，hystrix 设置无效
+  ribbon:
+    eager-load:
+      enabled: true # zuul 启动加载 ribbon
+ribbon:
+  ReadTimeout: 15000 # ribbon 读取超时时间
+  connectTimeout: 1000 # ribbon 连接超时时间
+  ServerListRefreshInterval: 2000  #刷新实例间隔
+  retryable: true # 开启ribbon重试
+  maxAutoRetries: 1 #最大自动重试数
+  maxAutoRetriesNextServer: 1 #最大切换实例数
+  OkToRetryOnAllOperations: true #所有请求都可重试
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000 # hystrixCommand 超时时间 60秒熔断
+      fallback:
+        isolation:
+          semaphore:
+            maxConcurrentRequests: 100 # 调用fallback 方法的并发线程数
+  threadpool:
+    default:
+      coreSize: 50 # 线程池核心数量
+      maximumSize: 3000 #最大数量
+      allowMaximumSizeToDivergeFromCoreSize: true
+      maxQueueSize: -1
+logging:
+  level.root: warn
+  file:
+    name: services-zuul.log

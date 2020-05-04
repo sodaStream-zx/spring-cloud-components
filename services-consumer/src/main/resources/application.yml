@@ -1,6 +1,6 @@
 spring:
   application:
-    name: learn-consumer
+    name: services-consumer
   cloud:
     nacos:
       discovery:
@@ -13,8 +13,9 @@ server:
     accept-count: 1000
     max-threads: 1000
 logging:
-  file: learn-consumer.log
   level.root: warn
+  file:
+    name: services-consumer.log
 info:
   version: 1.0
 management:
@@ -22,6 +23,3 @@ management:
     web:
       exposure:
         include: '*'
-swagger:
-  config:
-    pack-location: pri

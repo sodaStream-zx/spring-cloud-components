@@ -1,6 +1,6 @@
 spring:
   application:
-    name: learn-producer
+    name: services-producer
   cloud:
     nacos:
       discovery:
@@ -17,7 +17,7 @@ server:
 logging:
   level.root: warn
   file:
-    name: learn-producer.log
+    name: services-producer.log
 info:
   version: 1.0
 management:

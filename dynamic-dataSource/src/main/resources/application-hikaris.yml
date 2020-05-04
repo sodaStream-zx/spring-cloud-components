@@ -1,5 +1,11 @@
 dynamic:
   hikari:
+    auto-commit: true
+    idle-timeout: 30000
+    max-lifetime: 300000
+    connection-test-query: select 1
+    maximum-pool-size: 30
+    minimum-idle: 10000
     diff-properties:
       hikari-master:
         driverClassName: com.mysql.cj.jdbc.Driver
@@ -11,9 +17,3 @@ dynamic:
         url: jdbc:mysql://62.234.211.179:3306/component_learn?useSSL=false&allowMultiQueries=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
         username: root
         password: Zxx1994,.
-    auto-commit: true
-    idle-timeout: 30000
-    max-lifetime: 300000
-    connection-test-query: select 1
-    maximum-pool-size: 30
-    minimum-idle: 10000

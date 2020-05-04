@@ -8,7 +8,7 @@ spring:
         register-enabled: true
         namespace: ff361e46-bdc0-46c3-8ebe-1d545d4dedc4
   profiles:
-    active: jdbcs
+    active: druids,hikaris
 server:
   port: 10009
   tomcat:

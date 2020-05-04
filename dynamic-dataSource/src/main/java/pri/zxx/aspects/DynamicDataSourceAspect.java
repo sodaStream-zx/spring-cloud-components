@@ -42,11 +42,11 @@ public class DynamicDataSourceAspect {
         }
 
         if (pickDataSource == null || !DynamicDataSourceContextHolder.containDataSourceKey(pickDataSource.value())) {
-            log.warn("数据源[{}] 不存在,使用默认数据源 " + (pickDataSource != null ? pickDataSource.value() : null));
+            log.info("数据源[{}] 不存在,使用默认数据源 " + (pickDataSource != null ? pickDataSource.value() : null));
         } else {
             // 切换数据源
             DynamicDataSourceContextHolder.setDataSourceKey(pickDataSource.value());
-            log.warn("切换数据源为[{}],方法:[{}]", DynamicDataSourceContextHolder.getDataSourceKey(), name);
+            log.info("切换数据源为[{}],方法:[{}]", DynamicDataSourceContextHolder.getDataSourceKey(), name);
         }
         Object proceed = null;
         try {
@@ -56,7 +56,7 @@ public class DynamicDataSourceAspect {
         } finally {
             // 将数据源置为默认数据源
             DynamicDataSourceContextHolder.clearDataSourceKey();
-            log.warn("重置数据源为： [{}]", DynamicDataSourceContextHolder.getDataSourceKey());
+            log.info("重置数据源为： [{}]", DynamicDataSourceContextHolder.getDataSourceKey());
         }
         return proceed;
     }

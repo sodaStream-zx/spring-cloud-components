@@ -15,7 +15,7 @@ import java.util.Map;
 @ConfigurationProperties(value = "dynamic.druid")
 public class DruidProperties {
 
-    private Map<String, Map<String, Object>> diffProperties;
+    private Map<String, Map<String, Object>> diffProperties = new HashMap<>();
     private Integer initialSize;
     private Integer minIdle;
     private Integer maxActive;

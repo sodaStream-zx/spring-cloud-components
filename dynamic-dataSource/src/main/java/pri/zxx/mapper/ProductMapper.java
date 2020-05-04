@@ -4,7 +4,7 @@ package pri.zxx.mapper;
 import pri.zxx.annotion.PickDataSource;
 import pri.zxx.vo.TProduct;
 
-@PickDataSource(value = "slave")
+@PickDataSource(value = "hikari-slave")
 public interface ProductMapper {
     int deleteByPrimaryKey(Long pId);
 

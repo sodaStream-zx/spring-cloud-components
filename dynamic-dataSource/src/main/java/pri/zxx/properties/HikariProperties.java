@@ -14,7 +14,7 @@ import java.util.Map;
 @ConfigurationProperties(value = "dynamic.hikari")
 public class HikariProperties {
 
-    private Map<String, Map<String, Object>> diffProperties;
+    private Map<String, Map<String, Object>> diffProperties = new HashMap<>();
     private Integer minimumIdle;
     private Integer maximumPoolSize;
     private Boolean autoCommit;

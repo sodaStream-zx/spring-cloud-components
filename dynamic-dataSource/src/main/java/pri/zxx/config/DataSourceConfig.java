@@ -38,6 +38,9 @@ public class DataSourceConfig {
         if (hikariMap.size() > 0) {
             map.putAll(hikariMap);
         }
+        if (!(map.size() > 0) || !map.containsKey("master")) {
+            throw new RuntimeException("需要配置一个名为 master 的数据源");
+        }
         dynamicDataSource.setDataSources(map);
         return dynamicDataSource;
     }

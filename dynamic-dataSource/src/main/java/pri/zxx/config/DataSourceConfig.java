@@ -51,7 +51,7 @@ public class DataSourceConfig {
         // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource作为数据源则不能实现切换
         sessionFactory.setDataSource(dynamicDataSource());
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sessionFactory.setMapperLocations(resolver.getResources("classpath*:**/mappers/**/*.xml"));    // 扫描映射文件
+        sessionFactory.setMapperLocations(resolver.getResources("classpath:mapper*/**/*.xml"));    // 扫描映射文件
         return sessionFactory;
     }
 

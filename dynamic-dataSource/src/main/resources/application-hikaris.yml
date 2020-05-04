@@ -1,0 +1,19 @@
+dynamic:
+  hikari:
+    diff-properties:
+      hikari-master:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/component_learn?useSSL=false&allowMultiQueries=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+        username: root
+        password: zxx1994
+      hikari-slave:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://62.234.211.179:3306/component_learn?useSSL=false&allowMultiQueries=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+        username: root
+        password: Zxx1994,.
+    auto-commit: true
+    idle-timeout: 30000
+    max-lifetime: 300000
+    connection-test-query: select 1
+    maximum-pool-size: 30
+    minimum-idle: 10000

@@ -1,4 +1,4 @@
-package pri.zxx.config;
+package pri.zxx.properties;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -12,10 +12,10 @@ import java.util.Map;
  * @desc
  * @createTime 2020-05-03-16:19
  */
-@ConfigurationProperties(value = "dynamic")
+@ConfigurationProperties(value = "dynamic.druid")
 public class DruidProperties {
 
-    private Map<String, Map<String, Object>> datasource;
+    private Map<String, Map<String, Object>> diffProperties;
     private Integer initialSize;
     private Integer minIdle;
     private Integer maxActive;
@@ -31,12 +31,12 @@ public class DruidProperties {
     private Integer maxPoolPreparedStatementPerConnectionSize;
     private String connectionProperties;
 
-    public Map<String, Map<String, Object>> getDatasource() {
-        return datasource;
+    public Map<String, Map<String, Object>> getDiffProperties() {
+        return diffProperties;
     }
 
-    public void setDatasource(Map<String, Map<String, Object>> datasource) {
-        this.datasource = datasource;
+    public void setDiffProperties(Map<String, Map<String, Object>> diffProperties) {
+        this.diffProperties = diffProperties;
     }
 
     public Integer getInitialSize() {
@@ -153,11 +153,9 @@ public class DruidProperties {
 
 
     //组装数据源列表
-    public Map<Object, Object> druidDataSource() {
-        Map<Object, Object> druids = new HashMap<>(this.datasource.size());
-        this.datasource.forEach((dsName, stringObjectMap) -> {
-            druids.put(dsName, druidDataSource(stringObjectMap));
-        });
+    public Map<Object, Object> druidDataSources() {
+        Map<Object, Object> druids = new HashMap<>(this.diffProperties.size());
+        this.diffProperties.forEach((dsName, stringObjectMap) -> druids.put(dsName, druidDataSource(stringObjectMap)));
         return druids;
     }
 

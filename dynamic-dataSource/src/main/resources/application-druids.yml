@@ -1,0 +1,27 @@
+dynamic:
+  druid:
+    initialSize: 10
+    minIdle: 10
+    maxActive: 50
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 50
+    filters: stat,slf4j
+    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    datasource:
+      druid-master:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/component_learn?useSSL=false&allowMultiQueries=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+        username: root
+        password: zxx1994
+      druid-slave:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://62.234.211.179:3306/component_learn?useSSL=false&allowMultiQueries=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+        username: root
+        password: Zxx1994,.
